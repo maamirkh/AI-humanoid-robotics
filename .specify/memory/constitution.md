@@ -1,55 +1,48 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: 0.0.0 → 1.0.0
+Modified principles: None (new constitution)
+Added sections: All principles and sections added
+Removed sections: None
+Templates requiring updates:
+- .specify/templates/plan-template.md ✅ updated
+- .specify/templates/spec-template.md ✅ updated
+- .specify/templates/tasks-template.md ✅ updated
+- .specify/templates/commands/*.md ✅ updated
+Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics Interactive Textbook Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Educational Excellence
+Content must be accurate, comprehensive, and pedagogically sound. Complex concepts should be broken down into digestible sections. Progressive difficulty curve from fundamentals to advanced topics. Real-world examples and practical applications emphasized.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Accessibility & Inclusivity
+Multi-language support (English and Urdu) for broader reach. Content personalization based on user background and skill level. Responsive design for desktop, tablet, and mobile devices. Clear navigation and intuitive user interface.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### AI-First Development
+Leverage Claude Code and Spec-Kit Plus for content generation. Use AI agents and subagents for reusable intelligence. Implement RAG chatbot for interactive learning assistance. Employ Gemini API for natural language understanding and generation.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Open & Transparent
+Open source deployment on GitHub Pages. Clear documentation of architecture and implementation. MIT License principles followed where applicable. Community-driven improvements encouraged.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Privacy & Security
+User data protected with industry-standard practices. Authentication handled securely through Better Auth. No unnecessary data collection. Transparent data usage policies.
 
-### [PRINCIPLE_6_NAME]
+### Technical Excellence
+All code must adhere to PEP 8 for Python code, ESLint/Prettier for TypeScript/JavaScript, meaningful variable and function names, comprehensive tests and error handling. Implementation constraints: Response time < 3 seconds for 90% of queries, accurate retrieval from vector database, maximum context window of 8K tokens, graceful degradation if API fails.
 
+## Architecture Standards and Technical Mandates
 
-[PRINCIPLE__DESCRIPTION]
+Frontend Requirements: Docusaurus as the primary framework, TypeScript for type safety, React for interactive components, responsive design with mobile-first approach. Backend Requirements: FastAPI as the API framework, Python 3.10+ for backend services, RESTful API design principles, Async/await for performance, Proper error handling and logging. Database Requirements: Neon Serverless Postgres for relational data, Qdrant Cloud for vector storage, efficient indexing strategies, regular backups and data integrity checks. AI Integration Requirements: Google Gemini API as primary LLM, OpenAI SDK configured for Gemini compatibility, Google text-embedding-004 for embeddings, rate limiting and cost optimization, caching strategies for repeated queries.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Development Process and Workflow
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Phase-Based Development: Foundation (set up repos, Docusaurus, Spec-Kit Plus), Core Content (write chapters with Claude Code), RAG Integration (FastAPI, Neon Postgres, Qdrant), User Management (Better Auth), Intelligence Layer (Claude Code subagents), Personalization (content adaptation), Localization (Urdu translation), Testing & Optimization. Git Workflow: Use conventional commits format, code review with minimum 1 approval, automated testing on pull requests, continuous deployment via GitHub Actions.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All code changes must follow the established architecture standards. Amendments require documentation and approval. All features must pass comprehensive testing before merging. User data privacy must be maintained at all times. AI-generated content must be verified for accuracy. Deployment follows a continuous integration pipeline with automated testing.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-09 | **Last Amended**: 2025-12-09

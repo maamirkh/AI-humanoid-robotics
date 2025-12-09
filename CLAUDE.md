@@ -208,3 +208,338 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+# Physical AI & Humanoid Robotics Textbook Project
+
+## Project Overview
+Create a comprehensive, interactive digital textbook for teaching Physical AI and Humanoid Robotics, built with Docusaurus and enhanced with AI-powered features.
+
+## Core Requirements
+
+### 1. AI/Spec-Driven Book Creation
+- **Framework**: Docusaurus
+- **Development Tools**: 
+  - Claude Code (https://www.claude.com/product/claude-code)
+  - Spec-Kit Plus (https://github.com/panaversity/spec-kit-plus/)
+- **Deployment**: GitHub Pages
+- **Content Focus**: Physical AI and Humanoid Robotics curriculum
+
+### 2. Integrated RAG Chatbot
+Build and embed a fully functional RAG chatbot within the published textbook.
+
+**Technology Stack**:
+- **Backend Framework**: FastAPI
+- **AI SDK**: OpenAI Agents/ChatKit SDKs (configured with Gemini API Key)
+- **LLM Provider**: Google Gemini API
+- **Vector Database**: Qdrant Cloud (Free Tier)
+- **Relational Database**: Neon Serverless Postgres
+- **Embedding Model**: Google text-embedding-004 or similar Gemini embedding model
+
+**Core Features**:
+- Answer questions about book content
+- Context-aware responses based on selected text
+- Real-time query processing
+- Seamless integration within Docusaurus pages
+
+**Implementation Requirements**:
+- Index all book content in Qdrant vector database
+- Implement semantic search for relevant content retrieval
+- Use Google Gemini API (via OpenAI SDK configuration) for generating contextual answers
+- Support user text selection for targeted Q&A
+- Deploy chatbot API separately and embed in book via iframe/widget
+- Configure OpenAI SDK to use Gemini API endpoint with Gemini API key
+
+## Advanced Features
+
+### Feature 1: Reusable Intelligence
+Create and utilize reusable intelligence components via Claude Code.
+
+**Requirements**:
+- Develop **Claude Code Subagents** for specific tasks:
+  - Content generation subagent
+  - Code example validator
+  - Diagram generator
+  - Quiz/assessment creator
+- Create **Agent Skills** that can be reused across book chapters:
+  - Technical concept explainer
+  - Code snippet optimizer
+  - Terminology definer
+  - Learning path recommender
+
+**Deliverables**:
+- Document all subagents and skills in `/docs/claude-intelligence/`
+- Demonstrate reusability across multiple chapters
+- Include usage examples and configuration guides
+
+### Feature 2: Authentication System
+Implement comprehensive user authentication using Better Auth.
+
+**Technology**: Better Auth (https://www.better-auth.com/)
+
+**Features**:
+- **Signup Process**:
+  - Collect user information:
+    - Software background (programming languages, frameworks)
+    - Hardware background (robotics experience, electronics knowledge)
+    - Educational level
+    - Learning goals
+  - Store user profiles in Neon Postgres
+  
+- **Signin Process**:
+  - Secure authentication
+  - Session management
+  - Profile retrieval
+
+- **User Profile Schema**:
+```typescript
+interface UserProfile {
+  id: string;
+  email: string;
+  name: string;
+  softwareBackground: {
+    programmingLanguages: string[];
+    frameworks: string[];
+    experienceLevel: 'beginner' | 'intermediate' | 'advanced';
+  };
+  hardwareBackground: {
+    roboticsExperience: boolean;
+    electronicsKnowledge: 'none' | 'basic' | 'intermediate' | 'advanced';
+    hasBuiltRobot: boolean;
+  };
+  educationalLevel: string;
+  learningGoals: string[];
+  createdAt: Date;
+}
+```
+
+### Feature 3: Personalized Content
+Enable logged-in users to personalize chapter content based on their background.
+
+**Requirements**:
+- Add "Personalize Content" button at the start of each chapter
+- Adjust content based on user's:
+  - Software knowledge (show/hide code examples)
+  - Hardware experience (adjust technical depth)
+  - Learning goals (highlight relevant sections)
+
+**Personalization Examples**:
+- **Beginner Software**: Show detailed code explanations
+- **Advanced Hardware**: Skip basic electronics, focus on advanced topics
+- **Specific Goals**: Highlight content matching user's learning objectives
+
+**Implementation**:
+- Use Google Gemini API to regenerate content sections
+- Store personalization preferences in user profile
+- Cache personalized content for performance
+- Provide "Reset to Default" option
+
+### Feature 4: Urdu Translation
+Allow logged-in users to translate chapter content to Urdu.
+
+**Requirements**:
+- Add "Translate to Urdu" button at the start of each chapter
+- Real-time translation using OpenAI API
+- Preserve formatting and technical terms
+- Toggle between English and Urdu
+
+**Technical Considerations**:
+- Use Google Gemini API for high-quality translation
+- Implement caching to reduce API costs
+- Handle code blocks (keep untranslated)
+- Preserve mathematical formulas and diagrams
+- Right-to-left text support in UI
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────┐
+│           Docusaurus Frontend                    │
+│  ┌──────────────────────────────────────────┐   │
+│  │  Chapter Pages with:                     │   │
+│  │  - Personalize Button                    │   │
+│  │  - Translate Button                      │   │
+│  │  - Embedded RAG Chatbot                  │   │
+│  └──────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│              FastAPI Backend                     │
+│  ┌──────────────────────────────────────────┐   │
+│  │  - RAG Endpoints                         │   │
+│  │  - Auth Endpoints (Better Auth)          │   │
+│  │  - Personalization API                   │   │
+│  │  - Translation API                       │   │
+│  └──────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────┘
+          │              │              │
+          ▼              ▼              ▼
+┌─────────────┐  ┌──────────────┐  ┌──────────┐
+│   Qdrant    │  │    Neon      │  │  Google  │
+│   Vector    │  │  Postgres    │  │  Gemini  │
+│     DB      │  │   (User &    │  │   API    │
+│  (Content)  │  │  Chat Data)  │  │          │
+└─────────────┘  └──────────────┘  └──────────┘
+```
+
+## Development Workflow
+
+### Phase 1: Book Structure
+1. Set up Docusaurus project
+2. Define book outline and chapters using Spec-Kit Plus
+3. Create initial content with Claude Code
+4. Deploy to GitHub Pages
+
+### Phase 2: RAG Chatbot
+1. Set up FastAPI backend
+2. Configure Neon Postgres and Qdrant
+3. Implement content indexing pipeline
+4. Build chatbot API endpoints
+5. Embed chatbot in Docusaurus
+
+### Phase 3: Authentication
+1. Integrate Better Auth
+2. Create signup/signin UI
+3. Design user profile questionnaire
+4. Set up profile storage in Postgres
+
+### Phase 4: Advanced Features
+1. Implement content personalization
+2. Add Urdu translation
+3. Create Claude Code subagents
+4. Document all agent skills
+
+### Phase 5: Testing & Refinement
+1. End-to-end testing
+2. Performance optimization
+3. Documentation completion
+4. Final deployment
+
+## Deliverables Checklist
+
+### Core Deliverables
+- [ ] Docusaurus book deployed on GitHub Pages
+- [ ] Complete RAG chatbot integrated in book
+- [ ] Text selection-based Q&A functionality
+- [ ] FastAPI backend deployed
+- [ ] Qdrant vector database configured
+- [ ] Neon Postgres database set up
+- [ ] Google Gemini API integrated via OpenAI SDK
+
+### Advanced Features
+- [ ] Claude Code subagents
+- [ ] Agent skills documentation
+- [ ] Better Auth integration
+- [ ] User profile questionnaire
+- [ ] Content personalization
+- [ ] Urdu translation feature
+
+## Technical Stack Summary
+
+| Component | Technology |
+|-----------|------------|
+| Frontend Framework | Docusaurus |
+| Backend Framework | FastAPI |
+| Vector Database | Qdrant Cloud (Free) |
+| Relational Database | Neon Serverless Postgres |
+| AI/LLM | Google Gemini API (via OpenAI SDK) |
+| Embeddings | Google text-embedding-004 |
+| Authentication | Better Auth |
+| AI Development | Claude Code + Spec-Kit Plus |
+| Deployment | GitHub Pages (Frontend) + Cloud (Backend) |
+| Languages | TypeScript, Python, React |
+
+## API Configuration Notes
+
+### Using Gemini API with OpenAI SDK
+
+The OpenAI Agents/ChatKit SDK can be configured to use Google Gemini API as the backend. Here's how:
+
+```python
+# FastAPI backend configuration
+from openai import OpenAI
+
+# Configure OpenAI client to use Gemini
+client = OpenAI(
+    api_key="YOUR_GEMINI_API_KEY",
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+)
+
+# For embeddings
+from google.generativeai import embed_content
+
+# Use Gemini embedding models
+embedding_response = embed_content(
+    model="models/text-embedding-004",
+    content="Your text here"
+)
+```
+
+**Environment Variables Required**:
+```bash
+GEMINI_API_KEY=your_gemini_api_key_here
+QDRANT_URL=your_qdrant_cloud_url
+QDRANT_API_KEY=your_qdrant_api_key
+NEON_DATABASE_URL=your_neon_postgres_url
+```
+
+## Scoring Breakdown
+
+All features are important components of the complete textbook platform:
+
+| Feature Category | Components |
+|------------------|------------|
+| Core Platform | Book + RAG Chatbot + Deployment |
+| Intelligence Layer | Claude Code Subagents & Skills |
+| User Management | Authentication & Profiles |
+| Personalization | Content Adaptation |
+| Localization | Urdu Translation |
+
+## Getting Started
+
+1. **Install Dependencies**:
+```bash
+npm install -g claude-code
+git clone https://github.com/panaversity/spec-kit-plus/
+```
+
+2. **Initialize Project**:
+```bash
+npx create-docusaurus@latest physical-ai-textbook classic --typescript
+cd physical-ai-textbook
+```
+
+3. **Set Up Backend**:
+```bash
+mkdir backend
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install fastapi uvicorn google-generativeai qdrant-client psycopg2-binary better-auth openai
+```
+
+4. **Configure API Keys**:
+```bash
+# Create .env file
+echo "GEMINI_API_KEY=your_key_here" >> .env
+echo "QDRANT_URL=your_qdrant_url" >> .env
+echo "QDRANT_API_KEY=your_qdrant_key" >> .env
+echo "NEON_DATABASE_URL=your_neon_url" >> .env
+```
+
+5. **Follow Development Workflow** as outlined above.
+
+## Resources
+
+- [Spec-Kit Plus Documentation](https://github.com/panaversity/spec-kit-plus/)
+- [Claude Code Product Page](https://www.claude.com/product/claude-code)
+- [Docusaurus Documentation](https://docusaurus.io/)
+- [Better Auth Documentation](https://www.better-auth.com/)
+- [Qdrant Cloud](https://qdrant.tech/)
+- [Neon Serverless Postgres](https://neon.tech/)
+- [Google Gemini API Documentation](https://ai.google.dev/docs)
+- [OpenAI SDK with Custom Endpoints](https://platform.openai.com/docs/api-reference)
+
+---
+
+**Project Goal**: Create an innovative, AI-enhanced educational platform that adapts to each learner's background and provides intelligent, context-aware assistance throughout their Physical AI and Humanoid Robotics learning journey.
