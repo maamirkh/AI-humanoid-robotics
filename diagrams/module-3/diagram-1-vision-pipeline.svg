@@ -1,0 +1,94 @@
+<svg width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+  <title>Vision Pipeline</title>
+  <desc>Diagram showing the vision pipeline in humanoid robotics: raw image → preprocessing → feature extraction → object detection → scene interpretation</desc>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+
+  <!-- Raw Image Input -->
+  <rect x="30" y="80" width="100" height="80" fill="#4e73df" stroke="#2e59d9" stroke-width="2" rx="5"/>
+  <text x="80" y="120" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Raw
+  </text>
+  <text x="80" y="135" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Image
+  </text>
+  <rect x="40" y="90" width="20" height="20" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <rect x="60" y="90" width="20" height="20" fill="#cccccc" stroke="#cccccc" stroke-width="1"/>
+  <rect x="80" y="90" width="20" height="20" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <rect x="40" y="110" width="20" height="20" fill="#cccccc" stroke="#cccccc" stroke-width="1"/>
+  <rect x="60" y="110" width="20" height="20" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <rect x="80" y="110" width="20" height="20" fill="#cccccc" stroke="#cccccc" stroke-width="1"/>
+
+  <!-- Arrow 1 -->
+  <line x1="130" y1="120" x2="170" y2="120" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Preprocessing -->
+  <rect x="170" y="80" width="120" height="80" fill="#1cc88a" stroke="#17a2b8" stroke-width="2" rx="5"/>
+  <text x="230" y="110" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Preprocessing
+  </text>
+  <text x="230" y="125" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    (Noise Reduction,
+  </text>
+  <text x="230" y="140" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Enhancement)
+  </text>
+
+  <!-- Arrow 2 -->
+  <line x1="290" y1="120" x2="330" y2="120" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Feature Extraction -->
+  <rect x="330" y="80" width="120" height="80" fill="#36b9cc" stroke="#2c97b0" stroke-width="2" rx="5"/>
+  <text x="390" y="110" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Feature
+  </text>
+  <text x="390" y="125" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Extraction
+  </text>
+  <text x="390" y="140" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    (Edges, Corners)
+  </text>
+
+  <!-- Arrow 3 -->
+  <line x1="450" y1="120" x2="490" y2="120" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Object Detection -->
+  <rect x="490" y="80" width="120" height="80" fill="#f6c343" stroke="#d4af37" stroke-width="2" rx="5"/>
+  <text x="550" y="110" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Object
+  </text>
+  <text x="550" y="125" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Detection
+  </text>
+  <text x="550" y="140" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    (Recognition)
+  </text>
+
+  <!-- Arrow 4 -->
+  <line x1="610" y1="120" x2="650" y2="120" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Scene Interpretation -->
+  <rect x="650" y="80" width="120" height="80" fill="#e74a3b" stroke="#d14836" stroke-width="2" rx="5"/>
+  <text x="710" y="110" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Scene
+  </text>
+  <text x="710" y="125" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Interpretation
+  </text>
+  <text x="710" y="140" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    (Context)
+  </text>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="18" fill="#3a3b45" text-anchor="middle" font-weight="bold">
+    Vision Pipeline
+  </text>
+
+  <!-- Arrowheads definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5a5c69"/>
+    </marker>
+  </defs>
+</svg>

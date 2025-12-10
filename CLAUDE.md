@@ -543,3 +543,10 @@ echo "NEON_DATABASE_URL=your_neon_url" >> .env
 ---
 
 **Project Goal**: Create an innovative, AI-enhanced educational platform that adapts to each learner's background and provides intelligent, context-aware assistance throughout their Physical AI and Humanoid Robotics learning journey.
+
+## Active Technologies
+- Markdown/MDX, Node.js 18+ + Docusaurus v3, Node.js, NPM (001-docusaurus-textbook)
+- Files only (no database) (001-docusaurus-textbook)
+
+## Recent Changes
+- 001-docusaurus-textbook: Added Markdown/MDX, Node.js 18+ + Docusaurus v3, Node.js, NPM

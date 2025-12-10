@@ -1,29 +1,31 @@
-<!--
-Sync Impact Report:
-Version change: 0.0.0 → 1.0.0
-Modified principles: None (new constitution)
-Added sections: All principles and sections added
-Removed sections: None
-Templates requiring updates:
-- .specify/templates/plan-template.md ✅ updated
-- .specify/templates/spec-template.md ✅ updated
-- .specify/templates/tasks-template.md ✅ updated
-- .specify/templates/commands/*.md ✅ updated
-Follow-up TODOs: None
--->
-
-# Project Constitution: Physical AI & Humanoid Robotics Textbook
-
-**Version**: 1.0.0
-**Ratification Date**: 2025-01-01
-**Last Amended**: 2025-12-09
-**Governance**: All PRs must check compliance with constitution
-
+---
+id: 1
+title: Update-project-constitution
+stage: constitution
+date: 2025-12-09
+surface: agent
+model: claude-sonnet-4-5-20250929
+feature: none
+branch: main
+user: user
+command: /sp.constitution
+labels: ["constitution", "setup", "governance"]
+links:
+  spec: null
+  ticket: null
+  adr: null
+  pr: null
+files:
+ - .specify/memory/constitution.md
+tests:
 ---
 
+## Prompt
+
+```text
 ## 1. Project Theme & Purpose
 
-### Execution Restrictions
+## Execution Restrictions
 Claude Code must:
 - Only execute tasks related to textbook content creation.
 - Must NOT:
@@ -31,6 +33,7 @@ Claude Code must:
   - Start hardware installation steps
   - Create automation for ROS, robots, or sensors
 Unless explicitly defined in /specs/features/.
+
 
 ### 1.1 Theme
 **Digital Brain → Physical Body (Embodied Intelligence)**
@@ -228,3 +231,23 @@ Total: **15,000–20,000**
 
 ## Governance Note
 All PRs must check compliance with constitution.
+```
+
+## Response snapshot
+
+Updated the project constitution file at `.specify/memory/constitution.md` with the user's specifications, including project theme, communication standards, organization rules, course structure, content requirements, hardware documentation, technical standards, bonus features, submission requirements, known issues, and governance notes.
+
+## Outcome
+
+- ✅ Impact: Project governance framework established with clear principles and guidelines
+- 🧪 Tests: N/A - documentation update
+- 📁 Files: Updated .specify/memory/constitution.md with comprehensive project constitution
+- 🔁 Next prompts: User can now proceed with feature specification and planning
+- 🧠 Reflection: Constitution provides clear boundaries and guidelines for project execution
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: None - successful constitution update
+- Graders run and results (PASS/FAIL): PASS - constitution properly formatted and comprehensive
+- Prompt variant (if applicable): Standard constitution setup
+- Next experiment (smallest change to try): Begin feature specification based on constitution

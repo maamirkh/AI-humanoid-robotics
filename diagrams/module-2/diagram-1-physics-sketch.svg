@@ -1,0 +1,73 @@
+<svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
+  <title>Physics Sketch</title>
+  <desc>Simple physics sketch diagram showing contact, friction, and force concepts in humanoid robotics</desc>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+
+  <!-- Ground surface -->
+  <rect x="50" y="150" width="500" height="30" fill="#8B4513" stroke="#654321" stroke-width="1"/>
+
+  <!-- Robot foot contacting ground -->
+  <rect x="275" y="120" width="50" height="30" fill="#4e73df" stroke="#2e59d9" stroke-width="2" rx="5"/>
+  <text x="300" y="140" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">
+    Foot
+  </text>
+
+  <!-- Force arrows -->
+  <line x1="300" y1="120" x2="300" y2="80" stroke="#e74a3b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="310" y="100" font-family="Arial, sans-serif" font-size="12" fill="#e74a3b" font-weight="bold">
+    Gravity
+  </text>
+
+  <line x1="300" y1="150" x2="300" y2="180" stroke="#1cc88a" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="310" y="170" font-family="Arial, sans-serif" font-size="12" fill="#1cc88a" font-weight="bold">
+    Normal
+  </text>
+
+  <!-- Friction arrow -->
+  <line x1="275" y1="135" x2="235" y2="135" stroke="#36b9cc" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="255" y="125" font-family="Arial, sans-serif" font-size="12" fill="#36b9cc" font-weight="bold">
+    Friction
+  </text>
+
+  <!-- Contact area -->
+  <ellipse cx="300" cy="150" rx="25" ry="5" fill="#f6c343" fill-opacity="0.5" stroke="#f6c343" stroke-width="1"/>
+
+  <!-- Physics concepts -->
+  <rect x="50" y="50" width="120" height="50" fill="#e74a3b" stroke="#d14836" stroke-width="1" rx="5"/>
+  <text x="110" y="70" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">
+    Contact
+  </text>
+  <text x="110" y="85" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">
+    (Foot-Ground)
+  </text>
+
+  <rect x="180" y="50" width="120" height="50" fill="#36b9cc" stroke="#2c97b0" stroke-width="1" rx="5"/>
+  <text x="240" y="70" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">
+    Friction
+  </text>
+  <text x="240" y="85" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">
+    (Resistance)
+  </text>
+
+  <rect x="310" y="50" width="120" height="50" fill="#1cc88a" stroke="#17a2b8" stroke-width="1" rx="5"/>
+  <text x="370" y="70" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">
+    Force
+  </text>
+  <text x="370" y="85" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">
+    (Balance)
+  </text>
+
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="18" fill="#3a3b45" text-anchor="middle" font-weight="bold">
+    Physics Sketch: Contact, Friction, Force
+  </text>
+
+  <!-- Arrowheads definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74a3b"/>
+    </marker>
+  </defs>
+</svg>

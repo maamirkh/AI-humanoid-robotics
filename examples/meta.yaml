@@ -1,0 +1,436 @@
+# Metadata for Physical AI & Humanoid Robotics Textbook Code Examples
+# This file documents all code examples with their properties and requirements
+
+examples:
+  # Module 1 Examples
+  - id: "module-1-example-1"
+    title: "Conceptual Sensor Loop"
+    description: "Demonstrates a conceptual sensor loop for humanoid robots, showing how sensors collect data, process it, and trigger appropriate responses"
+    file_path: "code/module-1/example-1-sensor-loop.py"
+    module: "module-1"
+    category: "sensing"
+    difficulty: "intermediate"
+    estimated_time: "30 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "time", "random", "math"]
+    learning_objectives:
+      - "Understand sensor data processing in humanoid robots"
+      - "Learn about sensor fusion concepts"
+      - "Explore response planning based on sensor inputs"
+    key_concepts:
+      - "Sensor loops"
+      - "Data processing"
+      - "Response planning"
+    tags: ["sensors", "data-processing", "response-planning"]
+
+  - id: "module-1-example-2"
+    title: "Conceptual Balance Logic"
+    description: "Demonstrates conceptual balance logic for humanoid robots, showing how to maintain stability using sensor feedback and control algorithms"
+    file_path: "code/module-1/example-2-balance-logic.py"
+    module: "module-1"
+    category: "balance"
+    difficulty: "advanced"
+    estimated_time: "45 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "time", "random"]
+    learning_objectives:
+      - "Understand balance control algorithms"
+      - "Learn PID control implementation"
+      - "Explore ZMP (Zero Moment Point) calculation"
+    key_concepts:
+      - "Balance control"
+      - "PID controllers"
+      - "Zero Moment Point"
+    tags: ["balance", "control", "stability", "pid"]
+
+  - id: "module-1-example-3"
+    title: "Conceptual Object Recognition"
+    description: "Demonstrates conceptual object recognition for humanoid robots, showing how to identify and classify objects in the environment"
+    file_path: "code/module-1/example-3-object-recognition.py"
+    module: "module-1"
+    category: "perception"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "random", "math"]
+    learning_objectives:
+      - "Understand feature extraction techniques"
+      - "Learn object classification methods"
+      - "Explore computer vision concepts"
+    key_concepts:
+      - "Feature extraction"
+      - "Object classification"
+      - "Computer vision"
+    tags: ["perception", "computer-vision", "classification", "features"]
+
+  - id: "module-1-example-4"
+    title: "Conceptual Digital Twin"
+    description: "Demonstrates a conceptual digital twin for humanoid robots, showing how to create and maintain a virtual representation of the physical robot"
+    file_path: "code/module-1/example-4-digital-twin.py"
+    module: "module-1"
+    category: "modeling"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "dataclasses", "time", "math", "random"]
+    learning_objectives:
+      - "Understand digital twin concepts"
+      - "Learn synchronization between physical and virtual systems"
+      - "Explore uncertainty modeling"
+    key_concepts:
+      - "Digital twins"
+      - "Synchronization"
+      - "Uncertainty modeling"
+    tags: ["digital-twin", "modeling", "synchronization"]
+
+  - id: "module-1-example-5"
+    title: "Conceptual Embodiment"
+    description: "Demonstrates the concept of embodiment in humanoid robots, showing how physical form influences perception, cognition, and behavior"
+    file_path: "code/module-1/example-5-embodiment.py"
+    module: "module-1"
+    category: "cognition"
+    difficulty: "advanced"
+    estimated_time: "75 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "time", "math", "random"]
+    learning_objectives:
+      - "Understand embodiment concepts"
+      - "Learn sensorimotor loops"
+      - "Explore affordance theory"
+    key_concepts:
+      - "Embodiment"
+      - "Sensorimotor loops"
+      - "Affordances"
+    tags: ["embodiment", "cognition", "sensorimotor", "affordances"]
+
+  # Module 2 Examples
+  - id: "module-2-example-1"
+    title: "Pseudo Physics Scenario"
+    description: "Demonstrates conceptual physics scenarios for humanoid robots, showing how to model contact, friction, and force interactions"
+    file_path: "code/module-2/example-1-physics-scenario.py"
+    module: "module-2"
+    category: "physics"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time"]
+    learning_objectives:
+      - "Understand physics modeling for robots"
+      - "Learn contact mechanics"
+      - "Explore force interactions"
+    key_concepts:
+      - "Physics modeling"
+      - "Contact mechanics"
+      - "Force interactions"
+    tags: ["physics", "contact", "forces", "simulation"]
+
+  - id: "module-2-example-2"
+    title: "Human-Robot Interaction"
+    description: "Demonstrates conceptual human-robot interaction patterns for humanoid robots, showing how robots can recognize human gestures, attention, and intentions"
+    file_path: "code/module-2/example-2-human-robot-interaction.py"
+    module: "module-2"
+    category: "interaction"
+    difficulty: "intermediate"
+    estimated_time: "45 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "random", "time", "math"]
+    learning_objectives:
+      - "Understand human-robot interaction"
+      - "Learn gesture recognition"
+      - "Explore intention interpretation"
+    key_concepts:
+      - "Human-robot interaction"
+      - "Gesture recognition"
+      - "Intention interpretation"
+    tags: ["hri", "gesture", "interaction", "attention"]
+
+  - id: "module-2-example-3"
+    title: "Contact Modeling"
+    description: "Demonstrates conceptual contact modeling for humanoid robots, showing how to model physical contact between robot and environment"
+    file_path: "code/module-2/example-3-contact-modeling.py"
+    module: "module-2"
+    category: "contact"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time"]
+    learning_objectives:
+      - "Understand contact modeling"
+      - "Learn contact point mechanics"
+      - "Explore contact stability"
+    key_concepts:
+      - "Contact modeling"
+      - "Contact mechanics"
+      - "Stability"
+    tags: ["contact", "modeling", "stability", "mechanics"]
+
+  - id: "module-2-example-4"
+    title: "Force Analysis"
+    description: "Demonstrates conceptual force analysis for humanoid robots, showing how to analyze forces acting on the robot and their effects on motion"
+    file_path: "code/module-2/example-4-force-analysis.py"
+    module: "module-2"
+    category: "forces"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time"]
+    learning_objectives:
+      - "Understand force analysis"
+      - "Learn about moments and torques"
+      - "Explore dynamics modeling"
+    key_concepts:
+      - "Force analysis"
+      - "Moments and torques"
+      - "Dynamics"
+    tags: ["forces", "analysis", "dynamics", "torque"]
+
+  - id: "module-2-example-5"
+    title: "Friction Modeling"
+    description: "Demonstrates conceptual friction modeling for humanoid robots, showing how to model different types of friction and their effects on robot motion"
+    file_path: "code/module-2/example-5-friction-modeling.py"
+    module: "module-2"
+    category: "friction"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum"]
+    learning_objectives:
+      - "Understand friction modeling"
+      - "Learn about surface properties"
+      - "Explore traction analysis"
+    key_concepts:
+      - "Friction modeling"
+      - "Surface properties"
+      - "Traction"
+    tags: ["friction", "traction", "surfaces", "modeling"]
+
+  # Module 3 Examples
+  - id: "module-3-example-1"
+    title: "Vision Pipeline"
+    description: "Demonstrates a conceptual vision pipeline for humanoid robots, showing how to process visual information for perception and understanding"
+    file_path: "code/module-3/example-1-vision-pipeline.py"
+    module: "module-3"
+    category: "vision"
+    difficulty: "advanced"
+    estimated_time: "75 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "dataclasses"]
+    learning_objectives:
+      - "Understand vision pipelines"
+      - "Learn feature detection"
+      - "Explore object recognition"
+    key_concepts:
+      - "Vision pipeline"
+      - "Feature detection"
+      - "Object recognition"
+    tags: ["vision", "perception", "features", "detection"]
+
+  - id: "module-3-example-2"
+    title: "Frame Analysis"
+    description: "Demonstrates conceptual frame analysis for humanoid robots, showing how to analyze visual frames to understand the environment"
+    file_path: "code/module-3/example-2-frame-analysis.py"
+    module: "module-3"
+    category: "analysis"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum"]
+    learning_objectives:
+      - "Understand frame analysis"
+      - "Learn motion detection"
+      - "Explore temporal patterns"
+    key_concepts:
+      - "Frame analysis"
+      - "Motion detection"
+      - "Temporal analysis"
+    tags: ["frames", "analysis", "motion", "temporal"]
+
+  - id: "module-3-example-3"
+    title: "SLAM Concept"
+    description: "Demonstrates conceptual SLAM (Simultaneous Localization and Mapping) for humanoid robots, showing how to build a map while tracking position"
+    file_path: "code/module-3/example-3-slam-concept.py"
+    module: "module-3"
+    category: "mapping"
+    difficulty: "advanced"
+    estimated_time: "90 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "dataclasses"]
+    learning_objectives:
+      - "Understand SLAM concepts"
+      - "Learn localization techniques"
+      - "Explore mapping algorithms"
+    key_concepts:
+      - "SLAM"
+      - "Localization"
+      - "Mapping"
+    tags: ["slam", "localization", "mapping", "navigation"]
+
+  - id: "module-3-example-4"
+    title: "Map Types"
+    description: "Demonstrates different types of maps used in humanoid robotics, including occupancy grids, topological maps, and feature maps"
+    file_path: "code/module-3/example-4-map-types.py"
+    module: "module-3"
+    category: "mapping"
+    difficulty: "intermediate"
+    estimated_time: "45 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum"]
+    learning_objectives:
+      - "Understand different map types"
+      - "Learn occupancy grids"
+      - "Explore topological mapping"
+    key_concepts:
+      - "Map types"
+      - "Occupancy grids"
+      - "Topological maps"
+    tags: ["maps", "occupancy", "topological", "feature-maps"]
+
+  - id: "module-3-example-5"
+    title: "Pseudo Mapping"
+    description: "Demonstrates conceptual pseudo mapping for humanoid robots, showing how to create simplified representations of the environment"
+    file_path: "code/module-3/example-5-pseudo-mapping.py"
+    module: "module-3"
+    category: "mapping"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum"]
+    learning_objectives:
+      - "Understand pseudo mapping"
+      - "Learn simplified representations"
+      - "Explore semantic mapping"
+    key_concepts:
+      - "Pseudo mapping"
+      - "Simplified representations"
+      - "Semantic mapping"
+    tags: ["pseudo", "mapping", "simplified", "semantic"]
+
+  # Module 4 Examples
+  - id: "module-4-example-1"
+    title: "Kinematics"
+    description: "Demonstrates conceptual forward and inverse kinematics for humanoid robots, showing how to calculate joint angles and end-effector positions"
+    file_path: "code/module-4/example-1-kinematics.py"
+    module: "module-4"
+    category: "kinematics"
+    difficulty: "advanced"
+    estimated_time: "75 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "dataclasses"]
+    learning_objectives:
+      - "Understand forward kinematics"
+      - "Learn inverse kinematics"
+      - "Explore Jacobian matrices"
+    key_concepts:
+      - "Forward kinematics"
+      - "Inverse kinematics"
+      - "Jacobian matrices"
+    tags: ["kinematics", "forward", "inverse", "jacobian"]
+
+  - id: "module-4-example-2"
+    title: "Arm Reach"
+    description: "Demonstrates conceptual arm reach logic for humanoid robots, showing how to plan and execute reaching motions with obstacle avoidance"
+    file_path: "code/module-4/example-2-arm-reach.py"
+    module: "module-4"
+    category: "manipulation"
+    difficulty: "advanced"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum"]
+    learning_objectives:
+      - "Understand reach planning"
+      - "Learn obstacle avoidance"
+      - "Explore motion planning"
+    key_concepts:
+      - "Reach planning"
+      - "Obstacle avoidance"
+      - "Motion planning"
+    tags: ["reach", "manipulation", "obstacle-avoidance", "motion-planning"]
+
+  - id: "module-4-example-3"
+    title: "Decision Tree"
+    description: "Demonstrates conceptual decision trees for humanoid robots, showing how to make decisions based on sensor inputs and environmental conditions"
+    file_path: "code/module-4/example-3-decision-tree.py"
+    module: "module-4"
+    category: "decision-making"
+    difficulty: "intermediate"
+    estimated_time: "45 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum"]
+    learning_objectives:
+      - "Understand decision trees"
+      - "Learn sensor-based decisions"
+      - "Explore decision algorithms"
+    key_concepts:
+      - "Decision trees"
+      - "Sensor-based decisions"
+      - "Decision algorithms"
+    tags: ["decision", "trees", "sensors", "algorithms"]
+
+  - id: "module-4-example-4"
+    title: "Rule-Based"
+    description: "Demonstrates rule-based decision making for humanoid robots, showing how to implement and evaluate rules for various behaviors"
+    file_path: "code/module-4/example-4-rule-based.py"
+    module: "module-4"
+    category: "decision-making"
+    difficulty: "intermediate"
+    estimated_time: "60 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum", "dataclasses"]
+    learning_objectives:
+      - "Understand rule-based systems"
+      - "Learn condition evaluation"
+      - "Explore rule execution"
+    key_concepts:
+      - "Rule-based systems"
+      - "Condition evaluation"
+      - "Rule execution"
+    tags: ["rules", "rule-based", "conditions", "execution"]
+
+  - id: "module-4-example-5"
+    title: "System Overview"
+    description: "Demonstrates how all components work together in a humanoid robot system, showing the integration of perception, planning, control, and decision making"
+    file_path: "code/module-4/example-5-system-overview.py"
+    module: "module-4"
+    category: "integration"
+    difficulty: "advanced"
+    estimated_time: "90 minutes"
+    requires_gpu: false
+    python_version: "3.8+"
+    dependencies: ["typing", "math", "random", "time", "enum", "dataclasses"]
+    learning_objectives:
+      - "Understand system integration"
+      - "Learn component interaction"
+      - "Explore holistic robotics"
+    key_concepts:
+      - "System integration"
+      - "Component interaction"
+      - "Holistic robotics"
+    tags: ["integration", "system", "components", "holistic"]
+
+# Metadata about the examples collection
+metadata:
+  total_examples: 20
+  total_modules: 4
+  last_updated: "2025-12-09"
+  version: "1.0"
+  author: "Physical AI & Humanoid Robotics Textbook Project"
+  description: "Collection of code examples for the Physical AI & Humanoid Robotics textbook"

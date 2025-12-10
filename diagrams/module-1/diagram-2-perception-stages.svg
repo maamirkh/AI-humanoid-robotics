@@ -1,0 +1,81 @@
+<svg width="700" height="250" xmlns="http://www.w3.org/2000/svg">
+  <title>Perception Stages</title>
+  <desc>Diagram showing the stages of perception in humanoid robotics: raw data → feature extraction → object recognition → scene understanding</desc>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+
+  <!-- Stage 1: Raw Data -->
+  <rect x="30" y="100" width="120" height="60" fill="#4e73df" stroke="#2e59d9" stroke-width="2" rx="8"/>
+  <text x="90" y="130" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Raw Sensor
+  </text>
+  <text x="90" y="145" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Data
+  </text>
+
+  <!-- Arrow 1 -->
+  <line x1="150" y1="130" x2="180" y2="130" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 2: Feature Extraction -->
+  <rect x="180" y="100" width="120" height="60" fill="#1cc88a" stroke="#17a2b8" stroke-width="2" rx="8"/>
+  <text x="240" y="130" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Feature
+  </text>
+  <text x="240" y="145" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Extraction
+  </text>
+
+  <!-- Arrow 2 -->
+  <line x1="300" y1="130" x2="330" y2="130" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 3: Object Recognition -->
+  <rect x="330" y="100" width="120" height="60" fill="#36b9cc" stroke="#2c97b0" stroke-width="2" rx="8"/>
+  <text x="390" y="130" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Object
+  </text>
+  <text x="390" y="145" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Recognition
+  </text>
+
+  <!-- Arrow 3 -->
+  <line x1="450" y1="130" x2="480" y2="130" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 4: Scene Understanding -->
+  <rect x="480" y="100" width="120" height="60" fill="#e74a3b" stroke="#d14836" stroke-width="2" rx="8"/>
+  <text x="540" y="130" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Scene
+  </text>
+  <text x="540" y="145" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">
+    Understanding
+  </text>
+
+  <!-- Vertical connections -->
+  <line x1="90" y1="160" x2="90" y2="190" stroke="#5a5c69" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="90" y1="190" x2="240" y2="190" stroke="#5a5c69" stroke-width="2"/>
+  <line x1="240" y1="190" x2="240" y2="160" stroke="#5a5c69" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <line x1="240" y1="160" x2="240" y2="190" stroke="#5a5c69" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="240" y1="190" x2="390" y2="190" stroke="#5a5c69" stroke-width="2"/>
+  <line x1="390" y1="190" x2="390" y2="160" stroke="#5a5c69" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <line x1="390" y1="160" x2="390" y2="190" stroke="#5a5c69" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="390" y1="190" x2="540" y2="190" stroke="#5a5c69" stroke-width="2"/>
+  <line x1="540" y1="190" x2="540" y2="160" stroke="#5a5c69" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Feedback loop -->
+  <path d="M540,160 C570,180 570,210 540,230" fill="none" stroke="#5a5c69" stroke-width="1" stroke-dasharray="5,5"/>
+  <path d="M540,230 C510,210 510,180 540,160" fill="none" stroke="#5a5c69" stroke-width="1" marker-end="url(#arrowhead)"/>
+
+  <!-- Title -->
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="18" fill="#3a3b45" text-anchor="middle" font-weight="bold">
+    Perception Stages
+  </text>
+
+  <!-- Arrowheads definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5a5c69"/>
+    </marker>
+  </defs>
+</svg>

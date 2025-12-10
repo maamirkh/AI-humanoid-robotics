@@ -1,0 +1,77 @@
+<svg width="700" height="250" xmlns="http://www.w3.org/2000/svg">
+  <title>Mapping Loop</title>
+  <desc>Diagram showing the mapping loop in humanoid robotics: localization → mapping → path planning → navigation → loop</desc>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+
+  <!-- Localization -->
+  <circle cx="150" cy="100" r="50" fill="#4e73df" stroke="#2e59d9" stroke-width="3"/>
+  <text x="150" y="95" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">
+    Localization
+  </text>
+  <text x="150" y="115" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">
+    (Where am I?)
+  </text>
+
+  <!-- Mapping -->
+  <circle cx="350" cy="50" r="50" fill="#1cc88a" stroke="#17a2b8" stroke-width="3"/>
+  <text x="350" y="45" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">
+    Mapping
+  </text>
+  <text x="350" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">
+    (Build map)
+  </text>
+
+  <!-- Path Planning -->
+  <circle cx="550" cy="100" r="50" fill="#36b9cc" stroke="#2c97b0" stroke-width="3"/>
+  <text x="550" y="95" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">
+    Path Planning
+  </text>
+  <text x="550" y="115" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">
+    (How to go?)
+  </text>
+
+  <!-- Navigation -->
+  <circle cx="350" cy="200" r="50" fill="#e74a3b" stroke="#d14836" stroke-width="3"/>
+  <text x="350" y="195" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">
+    Navigation
+  </text>
+  <text x="350" y="215" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">
+    (Move now)
+  </text>
+
+  <!-- Arrows connecting the loop -->
+  <path d="M195,80 C230,70 270,65 305,70" fill="none" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M395,70 C430,65 470,70 505,80" fill="none" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M505,120 C470,130 430,135 395,130" fill="none" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M305,130 C270,135 230,130 195,120" fill="none" stroke="#5a5c69" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Robot representation -->
+  <rect x="130" y="85" width="10" height="15" fill="#ffffff" stroke="#ffffff" stroke-width="1" rx="2"/>
+  <circle cx="135" cy="80" r="5" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+
+  <!-- Legend -->
+  <rect x="50" y="170" width="160" height="60" fill="#ffffff" stroke="#cccccc" stroke-width="1" rx="5"/>
+  <text x="60" y="190" font-family="Arial, sans-serif" font-size="10" fill="#3a3b45">
+    SLAM Process
+  </text>
+  <text x="60" y="205" font-family="Arial, sans-serif" font-size="9" fill="#3a3b45">
+    Simultaneous Localization
+  </text>
+  <text x="60" y="220" font-family="Arial, sans-serif" font-size="9" fill="#3a3b45">
+    and Mapping
+  </text>
+
+  <!-- Title -->
+  <text x="350" y="20" font-family="Arial, sans-serif" font-size="18" fill="#3a3b45" text-anchor="middle" font-weight="bold">
+    Mapping Loop
+  </text>
+
+  <!-- Arrowheads definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5a5c69"/>
+    </marker>
+  </defs>
+</svg>
