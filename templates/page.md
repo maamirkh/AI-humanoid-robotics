@@ -1,9 +1,5 @@
----
-title: [Title]
-description: [Description]
-sidebar_position: [Position]
----
+# {{title}}
 
-# [Title]
+{{content}}
 
-[Content]
+
