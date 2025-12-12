@@ -8,11 +8,96 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin-bottom: 2rem;
+}
+
+/* Styles for the intro page custom elements */
+.textbook-intro {
+  text-align: center;
+  padding: 4rem 1rem;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.textbook-intro-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.textbook-intro-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.textbook-intro-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.textbook-intro-button {
+  display: inline-block;
+  background-color: #25c2a0 !important;
+  color: white !important;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.textbook-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.textbook-module-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textbook-module-link {
+  display: block;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.textbook-module-title {
+  margin-top: 0;
+  color: #25c2a0;
+  font-size: 1.25rem;
+}
+
+.textbook-module-desc {
+  margin-bottom: 0;
+  color: #6b7280;
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 2rem 0;
+  }
+
+  .textbook-intro {
+    padding: 2rem 1rem;
+  }
+
+  .textbook-intro-title {
+    font-size: 2rem;
   }
 }
 
@@ -20,89 +105,166 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.modulesSection {
+.modules {
   padding: 4rem 0;
-  background-color: #f9f9f9;
-}
-
-.modulesSection .sectionTitle {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.moduleCard {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.moduleCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.moduleCard .card__header {
-  background: linear-gradient(135deg, #25c2a0, #3498db);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-.moduleCard .card__body {
-  flex: 1;
-  padding: 1.5rem 1rem;
-  background-color: white;
-}
-
-.moduleCard .card__body h4 {
-  margin-top: 0;
-  color: #2c3e50;
-}
-
-.moduleCard .card__body p {
-  color: #7f8c8d;
-  line-height: 1.6;
-}
-
-.moduleCard .card__footer {
-  padding: 1rem;
   background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
 }
 
-@media screen and (max-width: 996px) {
-  .modulesSection {
-    padding: 2rem 0;
-  }
-
-  .moduleCard .card__header h3 {
-    font-size: 1.2rem;
-  }
+.modules .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-@media screen and (max-width: 996px) {
-  .modulesSection {
-    padding: 2rem 0;
-  }
-
-  .moduleCard .card__header h3 {
-    font-size: 1.2rem;
-  }
-
-  .col.col--3 {
-    width: 50%;
-    margin-bottom: 1.5rem;
-  }
+.modules .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.75rem;
+  gap: 1.5rem;
 }
 
+.modules .col {
+  padding: 0 0.75rem;
+  margin-bottom: 0;
+}
+
+/* CSS Module classes for grid layout - using modern CSS Grid */
+.moduleRow {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.moduleCol {
+  margin: 0 !important; /* Remove any padding/margin that might affect grid */
+  padding: 0 !important;
+  flex: 1 !important; /* Ensure proper flex behavior */
+}
+
+/* Fixed size cards with consistent height */
+.modules .card {
+  height: 450px !important; /* Fixed height for consistency */
+  width: 100% !important; /* Full width of the grid cell */
+  display: flex !important;
+  flex-direction: column !important;
+  margin-bottom: 0 !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18) !important; /* Enhanced shadow with more depth */
+  transition: all 0.3s ease !important;
+  border: none !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: white !important;
+  position: relative !important; /* Ensure proper positioning context */
+}
+
+/* Hover effect for cards */
+.modules .card:hover {
+  transform: translateY(-8px) !important; /* More noticeable lift */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28) !important; /* Enhanced shadow on hover */
+}
+
+.modules .card__body {
+  padding: 2rem 1.5rem !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  height: calc(100% - 60px) !important; /* Account for footer height */
+}
+
+.modules .card__footer {
+  padding: 0 1.5rem 1.5rem !important;
+  margin-top: auto !important;
+}
+
+.modules .card h3 {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  color: #25c2a0 !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  flex-shrink: 0 !important;
+  height: auto !important;
+}
+
+.modules .card p {
+  color: #666 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0 !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6 !important; /* Limit to 6 lines of text for consistency */
+  -webkit-box-orient: vertical !important;
+  text-overflow: ellipsis !important;
+  flex-shrink: 1 !important;
+}
+
+/* Module-specific title colors */
+.moduleTitle {
+  transition: color 0.3s ease !important;
+}
+
+.modules .card:hover .moduleTitle {
+  color: #2a7df0 !important;
+}
+
+/* Button enhancements */
+.modules .button {
+  transition: all 0.3s ease !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 4px !important;
+}
+
+.modules .button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Responsive adjustments - Clean and consistent */
 @media screen and (max-width: 768px) {
-  .col.col--3 {
-    width: 100%;
+  .moduleRow {
+    grid-template-columns: 1fr !important; /* Single column on mobile */
+    gap: 1rem !important;
+  }
+
+  .modules .card {
+    height: 400px !important; /* Fixed height for mobile */
+  }
+
+  .modules .card__body {
+    height: calc(100% - 60px) !important; /* Account for footer height */
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+  .moduleRow {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on tablet */
+    gap: 1.5rem !important;
+  }
+
+  .modules .card {
+    height: 425px !important; /* Fixed height for tablet */
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .moduleRow {
+    grid-template-columns: repeat(4, 1fr) !important; /* 4 columns on desktop */
+    gap: 1.5rem !important;
+  }
+
+  .modules .card {
+    height: 450px !important; /* Fixed height for desktop */
   }
 }

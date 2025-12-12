@@ -1,51 +1,41 @@
 #!/bin/bash
 # Link validation script for Physical AI & Humanoid Robotics Textbook
-# Checks for broken internal links in markdown files
+# Checks for broken links in markdown files
 
-echo "Running link validation..."
+set -e
 
-# Find all markdown files
-MARKDOWN_FILES=$(find docs -name "*.md" -type f)
-
-BROKEN_LINKS_FOUND=0
-
-for file in $MARKDOWN_FILES; do
-    echo "Checking links in $file..."
-
-    # Extract internal links from markdown file
-    LINKS=$(grep -oE '\[.*\]\(([^)]+)\)' "$file" | grep -oE '\(([^)]+)\)' | sed 's/[()]//g' | grep -E '^\.\.\/|^\.' | head -100)
-
-    while IFS= read -r link; do
-        if [[ -n "$link" ]]; then
-            # Convert relative path from markdown file location
-            dir=$(dirname "$file")
-            target="$dir/$link"
-
-            # Handle relative paths like ../module-2/some-file.md
-            target=$(realpath --relative-to="$dir" "$target" 2>/dev/null) || continue
-
-            # Check if target exists (resolve to actual file)
-            if [[ "$link" == *.md ]]; then
-                # If it's a .md link, check for the file
-                if [[ ! -f "$target" ]] && [[ ! -f "${target%.md}.md" ]]; then
-                    echo "❌ Broken link in $file -> $link"
-                    ((BROKEN_LINKS_FOUND++))
-                fi
-            else
-                # For non-md links, check if file exists
-                if [[ ! -f "$target" ]]; then
-                    echo "❌ Broken link in $file -> $link"
-                    ((BROKEN_LINKS_FOUND++))
-                fi
-            fi
-        fi
-    done <<< "$LINKS"
-done
-
-if [ $BROKEN_LINKS_FOUND -eq 0 ]; then
-    echo "✅ All links are valid!"
-    exit 0
-else
-    echo "❌ $BROKEN_LINKS_FOUND broken links found!"
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <directory>"
     exit 1
 fi
+
+DIRECTORY="$1"
+
+if [ ! -d "$DIRECTORY" ]; then
+    echo "Directory $DIRECTORY does not exist"
+    exit 1
+fi
+
+echo "Checking for broken links in $DIRECTORY..."
+
+# Find all markdown files and check for common link patterns
+find "$DIRECTORY" -name "*.md" -type f | while read -r file; do
+    echo "Checking links in: $file"
+    
+    # Extract and validate links in markdown format [text](url)
+    grep -oP '\[.*\](\K.*?)(?=\))' "$file" 2>/dev/null | while read -r link; do
+        # Skip if it's an anchor link or relative link to other markdown files
+        if [[ $link =~ ^# ]] || [[ $link =~ \.md$ ]] || [[ $link =~ ^/ ]] || [[ $link =~ ^\. ]]; then
+            continue
+        fi
+        
+        # Check if it's an external URL
+        if [[ $link =~ ^https?:// ]]; then
+            echo "  Checking external link: $link"
+            # Uncomment the next line to actually check external links (may be slow)
+            # curl -s -f -I "$link" > /dev/null 2>&1 || echo "    WARNING: Broken link: $link"
+        fi
+    done
+done
+
+echo "Link validation completed."

@@ -1,18 +1,15 @@
----
-title: [Example Title]
-description: [Example Description]
-sidebar_position: [Position]
----
+# {{title}}
 
-# [Example Title]
+An example of {{title}} implementation.
 
-## Overview
-[Description of the example]
+```python
+# {{title}} example
+def example_function():
+    """Example implementation of {{title}}"""
+    pass
 
-## Code
-```[language]
-[Code content]
+if __name__ == "__main__":
+    example_function()
 ```
 
-## Explanation
-[Explanation of how the example works]
+
