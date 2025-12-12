@@ -1,5 +1,1 @@
----
-title: [Title]
-description: [Description]
-sidebar_position: [Position]
----
+---\ntitle: {{title}}\nsidebar_position: {{position}}\ndescription: {{description}}\n---\n

@@ -1,86 +1,91 @@
-# Metadata for diagrams in the Physical AI & Humanoid Robotics Textbook
-diagrams:
-  # Module 1 diagrams
-  - id: "module-1-diagram-1"
-    title: "Sensor → Brain → Action Flow"
-    altText: "Diagram showing the flow from sensor input through brain processing to action output in a robotic system"
-    caption: "The fundamental flow of information in a robotic system: sensors capture environmental data, the brain processes this information, and actions are executed based on the processed data."
-    module: "module-1"
-    filePath: "diagrams/module-1/diagram-1-sensor-flow.svg"
-    accessibilityCompliant: true
-  - id: "module-1-diagram-2"
-    title: "Perception Stages"
-    altText: "Diagram illustrating the different stages of perception in robotics: sensing, processing, interpretation, and understanding"
-    caption: "The stages of perception in robotic systems, showing how raw sensor data is transformed into meaningful environmental understanding."
-    module: "module-1"
-    filePath: "diagrams/module-1/diagram-2-perception-stages.svg"
-    accessibilityCompliant: true
-  - id: "module-1-diagram-3"
-    title: "Real World ↔ Digital World Loop"
-    altText: "Diagram showing the bidirectional relationship between the real physical world and its digital representation in a digital twin system"
-    caption: "The continuous loop between the real physical world and its digital representation, where real-world data updates the digital model and digital insights guide real-world actions."
-    module: "module-1"
-    filePath: "diagrams/module-1/diagram-3-real-digital-loop.svg"
-    accessibilityCompliant: true
+# Metadata for diagrams in Physical AI & Humanoid Robotics Textbook
+# Each diagram should be tagged with appropriate categories and accessibility compliance
 
-  # Module 2 diagrams
-  - id: "module-2-diagram-1"
-    title: "Physics Sketch"
-    altText: "Simple diagram showing physical concepts relevant to humanoid robotics: contact points, friction forces, and ground interaction"
-    caption: "Basic physics concepts in humanoid robotics, illustrating how robots interact with the physical world through contact points and force application."
-    module: "module-2"
-    filePath: "diagrams/module-2/diagram-1-physics-sketch.svg"
-    accessibilityCompliant: true
-  - id: "module-2-diagram-2"
-    title: "Human-Robot Loop"
-    altText: "Diagram showing the interaction loop between humans and robots: human action, robot perception, robot response, human perception"
-    caption: "The bidirectional interaction loop in human-robot interaction, showing how humans and robots perceive and respond to each other's actions."
-    module: "module-2"
-    filePath: "diagrams/module-2/diagram-2-human-robot-loop.svg"
-    accessibilityCompliant: true
+module-1:
+  diagrams:
+    - id: diagram-1-sensor-flow
+      title: "Sensor → Brain → Action Flow"
+      file: "diagrams/module-1/diagram-1-sensor-flow.svg"
+      alt_text: "Flowchart showing sensor data flowing to brain processing and resulting in action"
+      caption: "Conceptual flow of sensor data processing in humanoid robots"
+      tags: ["sensors", "flow", "processing"]
+      accessibility_compliant: true
+    - id: diagram-2-perception-stages
+      title: "Perception Stages"
+      file: "diagrams/module-1/diagram-2-perception-stages.svg"
+      alt_text: "Diagram showing stages of perception processing from raw sensor data to high-level understanding"
+      caption: "Stages of perception processing in humanoid robots"
+      tags: ["perception", "stages", "processing"]
+      accessibility_compliant: true
+    - id: diagram-3-real-digital-loop
+      title: "Real World ↔ Digital World Loop"
+      file: "diagrams/module-1/diagram-3-real-digital-loop.svg"
+      alt_text: "Bidirectional loop showing interaction between real world physical systems and digital world representation"
+      caption: "The loop between physical reality and digital representation in humanoid robotics"
+      tags: ["digital-twin", "loop", "embodiment"]
+      accessibility_compliant: true
 
-  # Module 3 diagrams
-  - id: "module-3-diagram-1"
-    title: "Vision Pipeline"
-    altText: "Diagram showing the stages of a computer vision pipeline: image capture, preprocessing, feature extraction, analysis, and interpretation"
-    caption: "The stages of a computer vision pipeline in robotics, showing how visual information is processed from raw images to meaningful understanding."
-    module: "module-3"
-    filePath: "diagrams/module-3/diagram-1-vision-pipeline.svg"
-    accessibilityCompliant: true
-  - id: "module-3-diagram-2"
-    title: "Mapping Loop"
-    altText: "Diagram showing the mapping process: sensor data, map building, localization, path planning, and navigation"
-    caption: "The mapping and localization loop in robotics, showing how robots build maps of their environment and use them for navigation."
-    module: "module-3"
-    filePath: "diagrams/module-3/diagram-2-mapping-loop.svg"
-    accessibilityCompliant: true
-  - id: "module-3-diagram-3"
-    title: "Navigation Flowchart"
-    altText: "Flowchart showing the decision process for robot navigation: goal, path planning, obstacle detection, path adjustment, and movement"
-    caption: "The decision flow for robot navigation, showing how robots plan paths, detect obstacles, and adjust their movement accordingly."
-    module: "module-3"
-    filePath: "diagrams/module-3/diagram-3-navigation-flowchart.svg"
-    accessibilityCompliant: true
+module-2:
+  diagrams:
+    - id: diagram-1-physics-sketch
+      title: "Physics Sketch"
+      file: "diagrams/module-2/diagram-1-physics-sketch.svg"
+      alt_text: "Simple sketch showing physics concepts relevant to humanoid robots"
+      caption: "Basic physics concepts for humanoid robot interaction with environment"
+      tags: ["physics", "contact", "forces"]
+      accessibility_compliant: true
+    - id: diagram-2-human-robot-loop
+      title: "Human-Robot Interaction Loop"
+      file: "diagrams/module-2/diagram-2-human-robot-loop.svg"
+      alt_text: "Loop diagram showing bidirectional interaction between human and robot"
+      caption: "The interaction loop between humans and humanoid robots"
+      tags: ["interaction", "dialogue", "loop"]
+      accessibility_compliant: true
 
-  # Module 4 diagrams
-  - id: "module-4-diagram-1"
-    title: "Limb Sketch"
-    altText: "Simple diagram showing the kinematic structure of a robotic limb: joints, links, and degrees of freedom"
-    caption: "The kinematic structure of a robotic limb, showing joints, links, and degrees of freedom that enable movement and manipulation."
-    module: "module-4"
-    filePath: "diagrams/module-4/diagram-1-limb-sketch.svg"
-    accessibilityCompliant: true
-  - id: "module-4-diagram-2"
-    title: "Decision Logic"
-    altText: "Diagram showing a decision tree or logic flow for robot decision-making: inputs, processing nodes, and action outputs"
-    caption: "The decision-making logic in robots, showing how inputs are processed through logical structures to produce appropriate actions."
-    module: "module-4"
-    filePath: "diagrams/module-4/diagram-2-decision-logic.svg"
-    accessibilityCompliant: true
-  - id: "module-4-diagram-3"
-    title: "End-to-End Humanoid Loop"
-    altText: "Diagram showing the complete humanoid system: sensors, perception, thinking, action, and the continuous loop"
-    caption: "The complete humanoid system loop, showing how sensors, perception, thinking, and action work together in a continuous cycle."
-    module: "module-4"
-    filePath: "diagrams/module-4/diagram-3-end-to-end-loop.svg"
-    accessibilityCompliant: true
+module-3:
+  diagrams:
+    - id: diagram-1-vision-pipeline
+      title: "Vision Pipeline"
+      file: "diagrams/module-3/diagram-1-vision-pipeline.svg"
+      alt_text: "Pipeline diagram showing stages of visual processing from image capture to interpretation"
+      caption: "The vision processing pipeline in humanoid robots"
+      tags: ["vision", "pipeline", "processing"]
+      accessibility_compliant: true
+    - id: diagram-2-mapping-loop
+      title: "Mapping Loop"
+      file: "diagrams/module-3/diagram-2-mapping-loop.svg"
+      alt_text: "Loop diagram showing the process of creating and updating environmental maps"
+      caption: "The mapping process in humanoid robots"
+      tags: ["mapping", "slam", "environment"]
+      accessibility_compliant: true
+    - id: diagram-3-navigation-flowchart
+      title: "Navigation Flowchart"
+      file: "diagrams/module-3/diagram-3-navigation-flowchart.svg"
+      alt_text: "Flowchart showing decision points in robot navigation process"
+      caption: "Navigation decision flow in humanoid robots"
+      tags: ["navigation", "planning", "flowchart"]
+      accessibility_compliant: true
+
+module-4:
+  diagrams:
+    - id: diagram-1-limb-sketch
+      title: "Simple Limb Sketch"
+      file: "diagrams/module-4/diagram-1-limb-sketch.svg"
+      alt_text: "Simple sketch of a humanoid limb showing joints and degrees of freedom"
+      caption: "Basic structure of a humanoid limb"
+      tags: ["kinematics", "limb", "structure"]
+      accessibility_compliant: true
+    - id: diagram-2-decision-logic
+      title: "Decision Logic"
+      file: "diagrams/module-4/diagram-2-decision-logic.svg"
+      alt_text: "Diagram showing decision logic flow in humanoid behavior"
+      caption: "Decision logic structure in humanoid robots"
+      tags: ["decision", "logic", "behavior"]
+      accessibility_compliant: true
+    - id: diagram-3-end-to-end-loop
+      title: "End-to-End Humanoid Loop"
+      file: "diagrams/module-4/diagram-3-end-to-end-loop.svg"
+      alt_text: "Complete system diagram showing the full humanoid control loop"
+      caption: "The complete humanoid control loop from sensing to action"
+      tags: ["system", "integration", "loop"]
+      accessibility_compliant: true
