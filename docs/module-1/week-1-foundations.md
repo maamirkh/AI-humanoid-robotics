@@ -15,7 +15,7 @@ Traditional artificial intelligence operates in digital spaces where:
 - Time and space are abstract concepts
 
 Physical intelligence, however, must navigate a world characterized by:
-- Continuous, noisy sensor data
+- Continuous, noisy sensor data 
 - Uncertain physical laws and constraints
 - Actions with real, measurable consequences
 - Complex interactions with three-dimensional space
