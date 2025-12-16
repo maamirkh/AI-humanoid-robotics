@@ -547,6 +547,8 @@ echo "NEON_DATABASE_URL=your_neon_url" >> .env
 ## Active Technologies
 - Markdown/MDX, Node.js 18+ + Docusaurus v3, Node.js, NPM (001-docusaurus-textbook)
 - Files only (no database) (001-docusaurus-textbook)
+- Python 3.11+ + fastapi, uvicorn, pydantic, python-dotenv, uv (package manager) (002-uv-backend-init)
+- N/A (initial setup phase) (002-uv-backend-init)
 
 ## Recent Changes
 - 001-docusaurus-textbook: Added Markdown/MDX, Node.js 18+ + Docusaurus v3, Node.js, NPM
