@@ -69,6 +69,7 @@ const config = {
   themeConfig:
     /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
     ({
+      backendUrl: process.env.BACKEND_URL || 'http://localhost:8000',
       // image: 'img/docusaurus-social-card.jpg', // Removed since image file was deleted
       navbar: {
         title: 'Physical AI & Humanoid Robotics',
@@ -148,6 +149,29 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+    plugins: [
+      async function configureHtmlTags(context, options) {
+        return {
+          name: 'html-tags-config',
+          injectHtmlTags() {
+            return {
+              headTags: [
+                {
+                  tagName: 'script',
+                  innerHTML: `window.CHATBOT_BACKEND_URL = '${process.env.BACKEND_URL || 'http://localhost:8000'}';`,
+                },
+              ],
+            };
+          },
+        };
+      },
+    ],
+    scripts: [
+      {
+        src: '/js/config.js',
+        async: true,
+      },
+    ],
 };
 
 export default config;

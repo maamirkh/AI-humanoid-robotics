@@ -33,3 +33,4 @@ coverage/
 # Build outputs
 dist/
 out/
+backend/

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git filter-branch -f --prune-empty --index-filter 'git rm -rf --cached --ignore-unmatch backend' --tag-name-filter cat -- --all)",
+      "Bash(rm -rf specs/002-uv-backend-init/)"
+    ]
+  }
+}

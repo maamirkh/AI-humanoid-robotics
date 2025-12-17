@@ -549,6 +549,8 @@ echo "NEON_DATABASE_URL=your_neon_url" >> .env
 - Files only (no database) (001-docusaurus-textbook)
 - Python 3.11+ + fastapi, uvicorn, pydantic, python-dotenv, uv (package manager) (002-uv-backend-init)
 - N/A (initial setup phase) (002-uv-backend-init)
+- Python 3.11, TypeScript/JavaScript (Node.js 18+) + FastAPI, uvicorn, pydantic, Cohere, Qdrant, OpenAI Agent SDK, Neon PostgreSQL, Docusaurus (001-rag-chatbot-workflow)
+- Vector database (Qdrant Cloud), Relational database (Neon PostgreSQL), File storage (Docusaurus content) (001-rag-chatbot-workflow)
 
 ## Recent Changes
 - 001-docusaurus-textbook: Added Markdown/MDX, Node.js 18+ + Docusaurus v3, Node.js, NPM
