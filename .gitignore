@@ -64,3 +64,7 @@ backend/.uv/
 backend/.uv.lock
 backend/uv.lock
 
+
+# Build outputs
+dist/
+out/

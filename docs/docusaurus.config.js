@@ -114,8 +114,36 @@ const config = {
                 to: '/module-3/week-8-vision',
               },
               {
+                label: 'Module 2: Interaction',
+                to: '/module-2/week-6-physics',
+              },
+              {
+                label: 'Module 3: Perception & Navigation',
+                to: '/module-3/week-8-vision',
+              },
+              {
                 label: 'Module 4: Integration',
                 to: '/module-4/week-11-kinematics',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/maamirkh/AI-humanoid-robotics',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Module 4: Integration',
+                to: '/module-4/week-11-kinematics',
+                label: 'Physical AI Capstone',
+                to: '/capstone-project',
               },
             ],
           },
