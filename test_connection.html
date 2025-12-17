@@ -5,13 +5,13 @@
 </head>
 <body>
     <h1>Chatbot Connection Test</h1>
-    <p>Testing if the chatbot can connect to the backend at http://localhost:8000</p>
+    <p>Testing if the chatbot can connect to the backend at https://huggingface.co/spaces/mamir1983/rag-docusaurus-book</p>
 
     <div id="test-results"></div>
 
     <script>
         // Set the backend URL as a global variable (like the Docusaurus config would do)
-        window.CHATBOT_BACKEND_URL = 'http://localhost:8000';
+        window.CHATBOT_BACKEND_URL = 'https://huggingface.co/spaces/mamir1983/rag-docusaurus-book';
 
         async function testConnection() {
             const resultsDiv = document.getElementById('test-results');
@@ -19,7 +19,7 @@
             try {
                 // Test session creation endpoint
                 resultsDiv.innerHTML += '<p>Testing session creation endpoint...</p>';
-                const sessionResponse = await fetch('http://localhost:8000/api/v1/chat/session/new', {
+                const sessionResponse = await fetch('https://huggingface.co/spaces/mamir1983/rag-docusaurus-book/api/v1/chat/session/new', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -32,7 +32,7 @@
 
                     // Test chat endpoint with a simple query
                     resultsDiv.innerHTML += '<p>Testing chat endpoint...</p>';
-                    const chatResponse = await fetch('http://localhost:8000/api/v1/chat/', {
+                    const chatResponse = await fetch('https://huggingface.co/spaces/mamir1983/rag-docusaurus-book/api/v1/chat/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

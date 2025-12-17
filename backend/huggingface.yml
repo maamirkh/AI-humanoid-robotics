@@ -1,0 +1,18 @@
+spec_version: 0.1
+runtime:
+  huggingface: true
+  accelerated: false
+  cpu: 2
+  memory: 8Gi
+  secrets:
+    - COHERE_API_KEY
+    - QDRANT_API_KEY
+    - QDRANT_URL
+    - DATABASE_URL
+    - GEMINI_API_KEY
+  env:
+    - DEBUG=false
+  storage:
+    - type: volume
+      name: cache
+      mount_path: /root/.cache

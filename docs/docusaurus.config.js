@@ -69,7 +69,7 @@ const config = {
   themeConfig:
     /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
     ({
-      backendUrl: process.env.BACKEND_URL || 'http://localhost:8000',
+      backendUrl: process.env.BACKEND_URL || 'https://mamir1983-rag-docusaurus-book.hf.space',
       // image: 'img/docusaurus-social-card.jpg', // Removed since image file was deleted
       navbar: {
         title: 'Physical AI & Humanoid Robotics',
@@ -158,7 +158,7 @@ const config = {
               headTags: [
                 {
                   tagName: 'script',
-                  innerHTML: `window.CHATBOT_BACKEND_URL = '${process.env.BACKEND_URL || 'http://localhost:8000'}';`,
+                  innerHTML: `window.CHATBOT_BACKEND_URL = '${process.env.BACKEND_URL || 'https://mamir1983-rag-docusaurus-book.hf.space'}';`,
                 },
               ],
             };

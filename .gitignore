@@ -33,4 +33,34 @@ coverage/
 # Build outputs
 dist/
 out/
-backend/
+
+# Python backend
+backend/.env
+backend/.env.local
+backend/.env.*.local
+backend/.venv/
+backend/venv/
+backend/env/
+backend/ENV/
+backend/.python-version
+backend/__pycache__/
+backend/src/__pycache__/
+backend/src/api/__pycache__/
+backend/src/api/v1/__pycache__/
+backend/src/core/__pycache__/
+backend/src/models/__pycache__/
+backend/src/services/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/Pipfile
+backend/Pipfile.lock
+backend/requirements.txt
+backend/requirements-dev.txt
+backend/.coverage
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.uv/
+backend/.uv.lock
+backend/uv.lock
+

@@ -29,7 +29,7 @@ const ChatbotWidget = () => {
     try {
       const backendUrl = typeof window !== 'undefined' && window.CHATBOT_BACKEND_URL
         ? window.CHATBOT_BACKEND_URL
-        : process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+        : process.env.REACT_APP_BACKEND_URL || 'https://mamir1983-rag-docusaurus-book.hf.space';
 
       const response = await fetch(`${backendUrl}/api/v1/chat/session/new`, {
         method: 'POST',
@@ -73,7 +73,7 @@ const ChatbotWidget = () => {
     try {
       const backendUrl = typeof window !== 'undefined' && window.CHATBOT_BACKEND_URL
         ? window.CHATBOT_BACKEND_URL
-        : process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+        : process.env.REACT_APP_BACKEND_URL || 'https://mamir1983-rag-docusaurus-book.hf.space';
 
       // Call the backend API
       const response = await fetch(`${backendUrl}/api/v1/chat/`, {
