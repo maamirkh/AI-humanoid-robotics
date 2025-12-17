@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Connection Test</title>
+</head>
+<body>
+    <h1>Chatbot Connection Test</h1>
+    <p>Testing if the chatbot can connect to the backend at https://huggingface.co/spaces/mamir1983/rag-docusaurus-book</p>
+
+    <div id="test-results"></div>
+
+    <script>
+        // Set the backend URL as a global variable (like the Docusaurus config would do)
+        window.CHATBOT_BACKEND_URL = 'https://huggingface.co/spaces/mamir1983/rag-docusaurus-book';
+
+        async function testConnection() {
+            const resultsDiv = document.getElementById('test-results');
+
+            try {
+                // Test session creation endpoint
+                resultsDiv.innerHTML += '<p>Testing session creation endpoint...</p>';
+                const sessionResponse = await fetch('https://huggingface.co/spaces/mamir1983/rag-docusaurus-book/api/v1/chat/session/new', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (sessionResponse.ok) {
+                    const sessionData = await sessionResponse.json();
+                    resultsDiv.innerHTML += `<p style="color: green;">✓ Session creation successful! Session ID: ${sessionData.session_id}</p>`;
+
+                    // Test chat endpoint with a simple query
+                    resultsDiv.innerHTML += '<p>Testing chat endpoint...</p>';
+                    const chatResponse = await fetch('https://huggingface.co/spaces/mamir1983/rag-docusaurus-book/api/v1/chat/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            query: "What is humanoid robotics?",
+                            session_id: sessionData.session_id
+                        })
+                    });
+
+                    if (chatResponse.ok) {
+                        const chatData = await chatResponse.json();
+                        resultsDiv.innerHTML += `<p style="color: green;">✓ Chat endpoint working! Response: ${chatData.response.substring(0, 100)}...</p>`;
+                    } else {
+                        resultsDiv.innerHTML += `<p style="color: red;">✗ Chat endpoint failed: ${chatResponse.status} ${chatResponse.statusText}</p>`;
+                    }
+                } else {
+                    resultsDiv.innerHTML += `<p style="color: red;">✗ Session creation failed: ${sessionResponse.status} ${sessionResponse.statusText}</p>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `<p style="color: red;">✗ Connection error: ${error.message}</p>`;
+                console.error('Connection test failed:', error);
+            }
+        }
+
+        // Run the test when the page loads
+        window.onload = testConnection;
+    </script>
+</body>
+</html>

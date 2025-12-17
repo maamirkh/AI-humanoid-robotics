@@ -69,6 +69,7 @@ const config = {
   themeConfig:
     /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
     ({
+      backendUrl: process.env.BACKEND_URL || 'https://mamir1983-rag-docusaurus-book.hf.space',
       // image: 'img/docusaurus-social-card.jpg', // Removed since image file was deleted
       navbar: {
         title: 'Physical AI & Humanoid Robotics',
@@ -113,8 +114,36 @@ const config = {
                 to: '/module-3/week-8-vision',
               },
               {
+                label: 'Module 2: Interaction',
+                to: '/module-2/week-6-physics',
+              },
+              {
+                label: 'Module 3: Perception & Navigation',
+                to: '/module-3/week-8-vision',
+              },
+              {
                 label: 'Module 4: Integration',
                 to: '/module-4/week-11-kinematics',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/maamirkh/AI-humanoid-robotics',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Module 4: Integration',
+                to: '/module-4/week-11-kinematics',
+                label: 'Physical AI Capstone',
+                to: '/capstone-project',
               },
             ],
           },
@@ -148,6 +177,29 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+    plugins: [
+      async function configureHtmlTags(context, options) {
+        return {
+          name: 'html-tags-config',
+          injectHtmlTags() {
+            return {
+              headTags: [
+                {
+                  tagName: 'script',
+                  innerHTML: `window.CHATBOT_BACKEND_URL = '${process.env.BACKEND_URL || 'https://mamir1983-rag-docusaurus-book.hf.space'}';`,
+                },
+              ],
+            };
+          },
+        };
+      },
+    ],
+    scripts: [
+      {
+        src: '/js/config.js',
+        async: true,
+      },
+    ],
 };
 
 export default config;

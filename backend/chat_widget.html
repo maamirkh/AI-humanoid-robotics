@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAG Chatbot Widget</title>
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            background: white;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background: #4f46e5;
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: bold;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background: #e0e7ff;
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background: #f3f4f6;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 18px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+        }
+
+        .chatbot-input button:disabled {
+            background: #a5b4fc;
+            cursor: not-allowed;
+        }
+
+        .suggested-sections {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        .suggested-section {
+            display: inline-block;
+            background: #e0f2fe;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot-container" class="chatbot-container" style="display: none;">
+        <div class="chatbot-header">Physical AI & Humanoid Robotics Assistant</div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                Hello! I'm your AI assistant for the Physical AI and Humanoid Robotics textbook. Ask me anything about the content!
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="user-input" placeholder="Ask a question about the textbook..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <button id="chatbot-toggle" style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #4f46e5;
+        color: white;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        display: block;
+    ">💬</button>
+
+    <script>
+        // Configuration - can be set by Docusaurus
+        const CONFIG = {
+            backendUrl: window.CHATBOT_BACKEND_URL || 'https://huggingface.co/spaces/mamir1983/rag-docusaurus-book',
+            sessionId: null
+        };
+
+        // DOM elements
+        const container = document.getElementById('chatbot-container');
+        const toggleButton = document.getElementById('chatbot-toggle');
+        const messagesDiv = document.getElementById('chatbot-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // Toggle chatbot visibility
+        toggleButton.addEventListener('click', () => {
+            container.style.display = container.style.display === 'none' ? 'flex' : 'none';
+            if (container.style.display === 'flex' && !CONFIG.sessionId) {
+                // Create a new session when opening for the first time
+                createNewSession();
+            }
+        });
+
+        // Send message on button click
+        sendButton.addEventListener('click', sendMessage);
+
+        // Send message on Enter key
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Create new session
+        async function createNewSession() {
+            try {
+                const response = await fetch(`${CONFIG.backendUrl}/api/v1/chat/session/new`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+                CONFIG.sessionId = data.session_id;
+            } catch (error) {
+                console.error('Error creating session:', error);
+                addMessage('Sorry, I encountered an error setting up our conversation.', 'bot');
+            }
+        }
+
+        // Send user message
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Add user message to UI
+            addMessage(message, 'user');
+            userInput.value = '';
+            sendButton.disabled = true;
+
+            try {
+                const response = await fetch(`${CONFIG.backendUrl}/api/v1/chat/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: message,
+                        session_id: CONFIG.sessionId
+                    })
+                });
+
+                const data = await response.json();
+
+                // Add bot response to UI
+                addMessage(data.response, 'bot');
+
+                // Add suggested sections if available
+                if (data.suggested_sections && data.suggested_sections.length > 0) {
+                    const suggestionsDiv = document.createElement('div');
+                    suggestionsDiv.className = 'suggested-sections';
+                    suggestionsDiv.innerHTML = '<strong>Suggested sections:</strong> ';
+
+                    data.suggested_sections.slice(0, 3).forEach((section, index) => {
+                        const sectionSpan = document.createElement('span');
+                        sectionSpan.className = 'suggested-section';
+                        sectionSpan.textContent = section.section;
+                        sectionSpan.onclick = () => {
+                            userInput.value = `Tell me more about ${section.section}`;
+                        };
+                        suggestionsDiv.appendChild(sectionSpan);
+                    });
+
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'message bot-message';
+                    messageDiv.appendChild(suggestionsDiv);
+                    messagesDiv.appendChild(messageDiv);
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
+
+                // Update session ID if it was created
+                if (data.session_id && !CONFIG.sessionId) {
+                    CONFIG.sessionId = data.session_id;
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+                addMessage('Sorry, I encountered an error processing your request. Please try again.', 'bot');
+            } finally {
+                sendButton.disabled = false;
+                userInput.focus();
+            }
+        }
+
+        // Add message to chat UI
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Initialize - create session when widget is first opened
+        container.addEventListener('click', () => {
+            if (!CONFIG.sessionId) {
+                createNewSession();
+            }
+        });
+    </script>
+</body>
+</html>
